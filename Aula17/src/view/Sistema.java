@@ -52,7 +52,7 @@ public class Sistema {
 
     private static void cadastrarTurma() {
 
-        if (CadastroAlunos.getListaAlunos().size() == 0) {
+        if (CadastroAlunos.listaAlunosVazia()) {
             System.out.println("\nPrimeiro cadastre ao menos um aluno no sistema...");
             return;
         }
@@ -85,7 +85,7 @@ public class Sistema {
 
         System.out.println("\nLista de alunos cadastrados:");
 
-        if (CadastroAlunos.getListaAlunos().size() == 0) {
+        if (CadastroAlunos.listaAlunosVazia()) {
             System.out.println("\nNão há alunos cadastrados...");
             return;
         }

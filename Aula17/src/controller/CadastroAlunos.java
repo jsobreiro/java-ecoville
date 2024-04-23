@@ -15,4 +15,9 @@ public class CadastroAlunos {
         return listaAlunos;
     }
 
+    public static boolean listaAlunosVazia() {
+        // retorna true, se vazia, ou false, se há cadastros
+        return listaAlunos.isEmpty(); 
+    }
+
 }
