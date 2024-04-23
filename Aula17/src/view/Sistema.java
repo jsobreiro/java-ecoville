@@ -140,26 +140,6 @@ public class Sistema {
         }
     }
 
-    private static void teste1() {
-    
-        CadastroAlunos.cadastrarAluno(new Aluno("Huguinho", 
-        "huguinho@email.com", 1234));
-        CadastroAlunos.cadastrarAluno(new Aluno("Zezinho", 
-        "zezinho@email.com", 1235));
-        CadastroAlunos.cadastrarAluno(new Aluno("Luizinho", 
-        "luizinho@email.com", 1236));
-
-        Professor p1 = new Professor("Donald", 
-        "donald@email.com", 
-        "Desenvolvimento de Software");
-
-        Turma turma1 = new Turma(1, p1, 
-        CadastroAlunos.getListaAlunos());
-
-        System.out.println("Turma 01:");
-        System.out.println(turma1.toString());
-
-    }
 
 
 }
