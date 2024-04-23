@@ -1,18 +1,16 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# Aula 04 de Desenvolvimento de Software
 
-## Folder Structure
+## Descrição
+Este código faz parte da Aula 04 de Desenvolvimento de Software e concentra-se na introdução à programação orientada a objetos em Java, demonstrando a criação e uso de classes e métodos.
 
-The workspace contains two folders by default, where:
+## Funcionalidades e Conceitos Ensinados
+- **Classe Aluno:** Define a classe Aluno com atributos e métodos típicos para manipular esses atributos.
+- **Classe Console:** Utilizada para demonstrar a entrada e saída de dados em uma interface mais complexa que a padrão.
+- **Main em Aula04:** O arquivo principal que utiliza as classes Aluno e Console para criar uma interação baseada em objetos.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Estruturas Principais
+- **Manipulação de Objetos:** Criação e uso de objetos da classe Aluno, incluindo a leitura e impressão de dados dos alunos.
+- **Interação via Console:** Uso de uma classe específica para lidar com entradas e saídas, facilitando a interação com o usuário.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Este exemplo é vital para estudantes que estão começando a aprender sobre programação orientada a objetos, oferecendo uma base sólida para conceitos mais avançados.
