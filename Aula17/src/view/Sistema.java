@@ -5,7 +5,7 @@ import controller.CadastroTurmas;
 import model.*;
 
 public class Sistema {
-    
+
     public static void executar() {
 
         int op;
@@ -36,12 +36,26 @@ public class Sistema {
     private static void cadastrarAluno() {
 
         System.out.println("\nCadastro de Aluno:");
+
+        int matricula;
+        while (true) { // inicialmente, loop infinito
+
+            System.out.println("Matrícula: ");
+            matricula = Console.lerInt();
+
+            // verifica se a matrícula já foi usada em algum cadastro
+            if (CadastroAlunos.buscarAluno(matricula) != null) {
+                System.out.println("\nAluno " + matricula +
+                        " já se encontra cadastrado no sistema!");
+            } else {
+                break; // senão, forçamos a saída do loop
+            }
+        }
+
         System.out.println("Nome: ");
         String nome = Console.lerString();
         System.out.println("E-mail: ");
         String email = Console.lerString();
-        System.out.println("Matrícula: ");
-        int matricula = Console.lerInt();
 
         Aluno aluno = new Aluno(nome, email, matricula);
 
@@ -57,7 +71,7 @@ public class Sistema {
             System.out.println("\nPrimeiro cadastre ao menos um aluno no sistema...");
             return;
         }
-        
+
         System.out.println("\nCadastro de Turma:");
 
         System.out.println("Código da turma:");
@@ -77,7 +91,7 @@ public class Sistema {
         Turma turma = new Turma(cod, professor, CadastroAlunos.getListaAlunos());
 
         CadastroTurmas.cadastrarTurma(turma);
-        
+
         System.out.println("\nTurma cadastrada com sucesso!");
 
     }
@@ -99,14 +113,14 @@ public class Sistema {
     private static void listarTurmas() {
 
         System.out.println("Turmas cadastradas");
-        
+
         if (CadastroTurmas.getListaTurmas().size() == 0) {
             System.out.println("\nNão há turmas cadastradas");
             return;
         }
 
-        for (Turma  tempTurma : CadastroTurmas.getListaTurmas()) {
-            
+        for (Turma tempTurma : CadastroTurmas.getListaTurmas()) {
+
             System.out.println(tempTurma);
         }
 
@@ -120,14 +134,13 @@ public class Sistema {
 
         return false;
     }
-    
+
     private static void buscarAluno() {
 
-        if(verificarListaVazia("\nNão há alunos cadastrados")){
+        if (verificarListaVazia("\nNão há alunos cadastrados")) {
             return; // finaliza o método se o retorno acima for 'true'
         }
-        
-        
+
         System.out.println("\nInforme a matrícula do aluno:");
         int matricula = Console.lerInt();
 
@@ -137,8 +150,8 @@ public class Sistema {
 
         // Se o Aluno 'a' for nulo:
         if (a == null) {
-            System.out.println("\nAluno " + matricula + 
-                                " não cadastrado");
+            System.out.println("\nAluno " + matricula +
+                    " não cadastrado");
             return; // finalizamos o método
         }
 
@@ -158,7 +171,7 @@ public class Sistema {
             case 2:
                 cadastrarTurma();
                 break;
-            
+
             case 3:
                 listarAlunos();
                 break;
@@ -166,17 +179,19 @@ public class Sistema {
             case 4:
                 listarTurmas();
                 break;
-            
+
+            case 5:
+                buscarAluno();
+                break;
+
             case 0:
                 System.out.println("\nO sistema foi finalizado...");
                 break;
-        
+
             default:
                 System.out.println("\nOpção inválida. Digite novamente");
                 break;
         }
     }
-
-
 
 }
