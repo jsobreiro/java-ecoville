@@ -27,6 +27,7 @@ public class Sistema {
         System.out.println("2) Cadastrar turma");
         System.out.println("3) Listar alunos");
         System.out.println("4) Listar turmas");
+        System.out.println("5) Buscar aluno");
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
 
@@ -108,6 +109,42 @@ public class Sistema {
             
             System.out.println(tempTurma);
         }
+
+    }
+
+    private static boolean verificarListaVazia(String msg) {
+        if (CadastroAlunos.listaAlunosVazia()) {
+            System.out.println(msg);
+            return true;
+        }
+
+        return false;
+    }
+    
+    private static void buscarAluno() {
+
+        if(verificarListaVazia("\nNão há alunos cadastrados")){
+            return; // finaliza o método se o retorno acima for 'true'
+        }
+        
+        
+        System.out.println("\nInforme a matrícula do aluno:");
+        int matricula = Console.lerInt();
+
+        // buscarAlunos vai retornar um objeto do tipo Aluno
+        // ou o valor nulo.
+        Aluno a = CadastroAlunos.buscarAluno(matricula);
+
+        // Se o Aluno 'a' for nulo:
+        if (a == null) {
+            System.out.println("\nAluno " + matricula + 
+                                " não cadastrado");
+            return; // finalizamos o método
+        }
+
+        // se não for nulo, mostramos o objeto na tela
+        System.out.println("\nAluno localizado:");
+        System.out.println(a.toString());
 
     }
 

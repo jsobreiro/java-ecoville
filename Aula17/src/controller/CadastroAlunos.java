@@ -20,4 +20,17 @@ public class CadastroAlunos {
         return listaAlunos.isEmpty(); 
     }
 
+        public static Aluno buscarAluno(int matricula) {
+
+            for(Aluno tempAluno : listaAlunos) {
+
+                if (tempAluno.getMatricula() == matricula) {
+                    return tempAluno;
+                }
+            }
+
+            return null;
+
+        }
+
 }
