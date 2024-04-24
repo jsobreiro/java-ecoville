@@ -28,6 +28,7 @@ public class Sistema {
         System.out.println("3) Listar alunos");
         System.out.println("4) Listar turmas");
         System.out.println("5) Buscar aluno");
+        System.out.println("6) BuscarTurma");
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
 
@@ -161,6 +162,27 @@ public class Sistema {
 
     }
 
+    private static void buscarTurma() {
+
+        // TODO: inserir verifiação de lista vazia para a lista de turmas.
+        // (ver buscarAluno para referência)
+
+        System.out.println("\nBuscar turma pelo código: ");
+        int cod = Console.lerInt();
+
+        Turma t = CadastroTurmas.buscarTurma(cod);
+
+        if (t == null) {
+            System.out.println("\nTurma " + cod 
+                + " não cadastrada no sistema");
+                return;
+        }
+
+        System.out.println("Turma localizada:");
+        System.out.println(t.toString());
+
+    }
+
     private static void verificarOpcao(int op) {
 
         switch (op) {
@@ -182,6 +204,10 @@ public class Sistema {
 
             case 5:
                 buscarAluno();
+                break;
+
+            case 6:
+                buscarTurma();
                 break;
 
             case 0:
