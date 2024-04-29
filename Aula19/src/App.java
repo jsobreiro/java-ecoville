@@ -1,4 +1,7 @@
 import abstratas.*;
+import interfaces.Circulo;
+import interfaces.Forma;
+import interfaces.Quadrado;
 import polimorfismo.*;
 
 public class App {
@@ -28,6 +31,12 @@ public class App {
         System.out.println(ybr.acelerar());
         System.out.println(ybr.parar());
         
+        // Chamada de métodos da interface implementada
+        Forma meuCirculo = new Circulo();
+        Forma meuQuadrado = new Quadrado();
+
+        meuCirculo.desenhar();
+        meuQuadrado.desenhar();
 
     }
 }
