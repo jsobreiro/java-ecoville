@@ -1,6 +1,5 @@
-import polimorfismo.Calculadora;
-import polimorfismo.Idoso;
-import polimorfismo.Jovem;
+import abstratas.*;
+import polimorfismo.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -16,6 +15,19 @@ public class App {
 
         jason.falar();
         bob.falar();
+
+        // Chamada dos métodos  abstratos "acelerar" e "parar", 
+        // da super classe Veiculo que foram implementados pelas 
+        // subclasses Carro e Moto
+        Carro celta = new Carro();
+        Moto ybr = new Moto();
+
+        System.out.println(celta.acelerar());
+        System.out.println(celta.parar());
+
+        System.out.println(ybr.acelerar());
+        System.out.println(ybr.parar());
+        
 
     }
 }
