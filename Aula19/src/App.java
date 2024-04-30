@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 import abstratas.*;
+import exercicios.Coordenador;
+import exercicios.FolhaPagamento;
 import exercicios.Professor;
 import interfaces.*;
 import polimorfismo.*;
@@ -9,12 +11,29 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         // Execução do exemplo/exercício:
-        Professor profe = new Professor();
-        System.out.println("Dados do Professor:");
-        System.out.println(profe);
+        FolhaPagamento professor = new Professor(1234,
+        "Jason Sobreiro",
+        55.75f,
+        160,
+        "Desenvolvimento de Software");
 
-        System.out.println("\nMostrando apenas o salário:");
-        System.out.println(profe.calcularSalario());
+        FolhaPagamento coordenador = new Coordenador(1235,
+        "Kristian Capeline",
+        60.23f,
+        200,
+        "Engenharia de Software",
+        2500.50f);
+
+        System.out.println("Professor Cadastrado:");
+        System.out.println(professor);
+
+        System.out.println("\nCoordenador Cadastrado:");
+        System.out.println(coordenador);
+
+        ArrayList<FolhaPagamento> folhasPagamento = new ArrayList<>();
+
+        folhasPagamento.add(professor);
+        folhasPagamento.add(coordenador);
         
     }
     

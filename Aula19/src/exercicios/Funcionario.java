@@ -13,11 +13,17 @@ public abstract class Funcionario {
     // public: QUALQUER classe pode acessar (evitar o uso em atributos)
 
     public Funcionario() {
-        matricula = 1234;
-        nome = "João da Silva";
-        valorHora = 48.5f;
-        horasTrab = 180;
+        
     }
+
+    public Funcionario(int matricula, String nome, float valorHora, float horasTrab) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.valorHora = valorHora;
+        this.horasTrab = horasTrab;
+    }
+
+
 
 
     public int getMatricula() {

@@ -5,9 +5,18 @@ public class Professor extends Funcionario implements FolhaPagamento {
     private String disciplina;
 
     public Professor() {
-        super(); // chamada do construtor da superclasse
-        disciplina = "Desenvolvimento de Software";
+      
     }
+
+
+    public Professor(int matricula, String nome, 
+                    float valorHora, float horasTrab, 
+                    String disciplina) {
+        super(matricula, nome, valorHora, horasTrab);
+        this.disciplina = disciplina;
+    }
+
+
 
     public String getDisciplina() {
         return disciplina;
