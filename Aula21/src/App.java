@@ -1,7 +1,26 @@
 public class App {
     public static void main(String[] args)  {
         
+        ContaCorrente cc = new ContaCorrente(1234, 2500.50f, 500);
 
+        System.out.println(cc.depositar(500));
+        System.out.println(cc.retornarSaldo());
+
+        try {
+            System.out.println(cc.sacar(3500));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println(cc.sacar(1));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(cc.depositar(250));
+
+        System.out.println(cc.retornarSaldo());
 
     }
 
