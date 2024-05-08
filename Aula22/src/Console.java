@@ -16,7 +16,7 @@ public class Console {
             
             } catch (InputMismatchException e) {
                 // senão, a exceção é capturada:
-                scanner.next();
+                scanner.nextLine();
                 System.out.println("O valor informado não é um inteiro. Digite novamente: ");
             
             }
@@ -31,11 +31,11 @@ public class Console {
         while (true) {
             try {
                 valor = scanner.nextFloat();
-                scanner.next();
+                scanner.nextLine();
                 break;
 
             } catch (InputMismatchException e) {
-                scanner.next();
+                scanner.nextLine();
                 System.out.println("O valor informado não é um 'float'. Digite novamente: ");
             }
         }

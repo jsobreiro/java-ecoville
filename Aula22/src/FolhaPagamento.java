@@ -22,6 +22,18 @@ public abstract class FolhaPagamento {
         return listaFuncionarios;
     }
 
+    public static boolean matriculaValida(int matricula) throws Exception {
+
+        for (Funcionario tempFuncionario : listaFuncionarios) {
+            if (tempFuncionario.matricula == matricula) {
+                throw new Exception("\nMatrícula já está em uso");
+            }
+        }
+
+        return true;
+
+    }
+
 
 
 }
