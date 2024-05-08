@@ -24,7 +24,7 @@ public class Desenvolvedor extends Funcionario{
     @Override
     public String retornarDados() {
         String txt = "\nMatrícula: " + matricula + 
-        "\nNome do Gerente: " + nome +
+        "\nNome do Desenvolvedor: " + nome +
         "\nLinguagens que domina: " + linguagensProg +
         "\nValor da hora de trab.: R$ " + valorHora +
         "\nHoras trabalhadas: " + horasTrab + "h" +
