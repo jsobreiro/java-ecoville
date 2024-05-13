@@ -11,14 +11,15 @@ public class Console {
         while(true){
             try { // tenta executar a leitura do int
                 valor = scanner.nextInt();
-                scanner.nextLine(); // limpa o buffer
                 break; // quebra o loop se o valor foi lido
             
             } catch (InputMismatchException e) {
                 // senão, a exceção é capturada:
-                scanner.nextLine();
                 System.out.println("O valor informado não é um inteiro. Digite novamente: ");
             
+            } finally { // SEMPRE será executado
+
+                scanner.nextLine(); // limpa o buffer
             }
         }
         // retorna o valor lido:

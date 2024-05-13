@@ -3,8 +3,68 @@ import exemplo1.*;
 public class App {
     public static void main(String[] args) throws Exception {
         
-        
+        teste2Exemplo1();
+
+
     }
+
+
+    private static void teste2Exemplo1() {
+
+        int op;
+
+        do {
+
+            System.out.println("\nGerenciar Carros");
+            System.out.println("1) Cadastrar");
+            System.out.println("2) Listar");
+            System.out.println("0) Sair");
+            System.out.print("Sua opção: ");
+            op = Console.lerInt();
+
+            switch (op) {
+                case 1:
+                    
+                    System.out.println("\nNovo carro:");
+                    System.out.print("Placa: ");
+                    String placa = Console.lerString();
+
+                    System.out.print("Modelo: ");
+                    String modelo = Console.lerString();
+
+                    System.out.println("Cor: ");
+                    String cor = Console.lerString();
+
+                    Carro carro = new Carro(placa, modelo, cor);
+
+                    GerenciarCarros.salvarCarro(carro);
+
+                    System.out.println("\nCarro cadastrado com sucesso!");
+
+                    break;
+
+                case 2: 
+
+                    System.out.println("\nCarros Cadastrados: ");
+                    GerenciarCarros.listarCarros();
+                    break;
+
+                case 0: 
+
+                    System.out.println("\nO sistema foi finalizado...");
+                    break;  
+
+                default:
+                    System.out.println("\nOpção inválida. Digite novamente");
+                    break;
+            }
+
+
+        } while (op != 0);
+
+
+    }
+
     
     private static void testeExemplo1() {
         
