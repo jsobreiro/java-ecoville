@@ -43,7 +43,7 @@ public abstract class GerenciarCarros {
             }
             
         } catch (IOException e) {
-           
+           System.out.println("Erro ao criar ou acessar o arquivo: " + e.getMessage());
         }
 
 

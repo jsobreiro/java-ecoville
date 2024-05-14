@@ -1,9 +1,14 @@
+import java.io.IOException;
+import java.util.ArrayList;
+
 import exemplo1.*;
+import exemplo2.Contato;
+import exemplo2.GerenciadorContatos;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
-        teste2Exemplo1();
+       testeExemplo2();
 
 
     }
@@ -18,6 +23,7 @@ public class App {
             System.out.println("\nGerenciar Carros");
             System.out.println("1) Cadastrar");
             System.out.println("2) Listar");
+            System.out.println("3) Apagar cadastro");
             System.out.println("0) Sair");
             System.out.print("Sua opção: ");
             op = Console.lerInt();
@@ -32,7 +38,7 @@ public class App {
                     System.out.print("Modelo: ");
                     String modelo = Console.lerString();
 
-                    System.out.println("Cor: ");
+                    System.out.print("Cor: ");
                     String cor = Console.lerString();
 
                     Carro carro = new Carro(placa, modelo, cor);
@@ -49,6 +55,12 @@ public class App {
                     GerenciarCarros.listarCarros();
                     break;
 
+                case 3:
+
+                    GerenciarCarros.apagarDados();
+                    System.out.println("\nCarros excluídos do arquivo");
+                    break;
+                    
                 case 0: 
 
                     System.out.println("\nO sistema foi finalizado...");
@@ -64,7 +76,6 @@ public class App {
 
 
     }
-
     
     private static void testeExemplo1() {
         
@@ -88,4 +99,46 @@ public class App {
                 GerenciarCarros.listarCarros();
 
     }
+
+    private static void testeExemplo2() {
+
+        Contato c1 = new Contato("Fulano da Silva", "fulano@silva.com");
+        Contato c2 = new Contato ("Beltrano Souza", "beltrano@email.com");
+
+        /* try {
+            GerenciadorContatos.salvarContato(c1);
+            GerenciadorContatos.salvarContato(c2);
+            System.out.println("\nContatos foram salvos no arquivo 'agenda.txt'");
+        
+        } catch (IOException e) {
+            System.out.println("Erro ao criar ou acessar o arquivo: " + e.getMessage());
+        } */
+
+        System.out.println("\nContatos Cadastrados:");
+
+        try {
+
+            ArrayList<Contato> contatos = GerenciadorContatos.lerContatos();
+
+            if (contatos.isEmpty()) {
+
+                System.out.println("\nNão há contatos cadastrados!");
+                return;
+
+            }
+
+            for (Contato tempContato : contatos) {
+                
+                System.out.println(tempContato);
+
+            }
+        
+        } catch (IOException e) {
+
+            System.out.println("Erro ao criar ou acessar o arquivo: " + e.getMessage());
+        }
+
+
+    }
+
 }
