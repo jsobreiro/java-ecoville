@@ -105,14 +105,14 @@ public class App {
         Contato c1 = new Contato("Fulano da Silva", "fulano@silva.com");
         Contato c2 = new Contato ("Beltrano Souza", "beltrano@email.com");
 
-        /* try {
+        try {
             GerenciadorContatos.salvarContato(c1);
             GerenciadorContatos.salvarContato(c2);
             System.out.println("\nContatos foram salvos no arquivo 'agenda.txt'");
         
         } catch (IOException e) {
             System.out.println("Erro ao criar ou acessar o arquivo: " + e.getMessage());
-        } */
+        }
 
         System.out.println("\nContatos Cadastrados:");
 
