@@ -65,14 +65,20 @@ public abstract class GerenciadorJogos {
 
         ArrayList<Jogo> listaJogos = listarJogos();       
     
+        boolean encontrou = false;
         for (Jogo temp : listaJogos) {
 
             if(temp.getCodigo() == codigo) {
                 listaJogos.remove(temp);
+                encontrou = true;
                 break;
             }
         }
-    
+
+        if (!encontrou) {
+            throw new Exception("\nJogo com o código " + codigo + " não localizado!");
+        }
+
         // sobrescrever arquivo com array list atualizado:
         try (FileWriter fw = new FileWriter(ARQUIVO);
         BufferedWriter bw = new BufferedWriter(fw)) {
