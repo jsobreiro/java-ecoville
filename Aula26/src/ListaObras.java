@@ -25,4 +25,12 @@ public abstract class ListaObras {
 
     }
 
+    public static void excluirObra(ObraArte obra) {
+
+        listaObras.remove(obra);
+
+    }
+
+
+
 }

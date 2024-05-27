@@ -27,6 +27,28 @@ public class App {
         if (tempObra != null) {
             System.out.println("Obra encontrada:");
             System.out.println(tempObra);
+
+            //  Atualizando dados
+            titulo = Console.lerString("\nInforme novo título");
+            artista = Console.lerString("Informe novo artista");
+            anoCriacao = Console.lerInt("Informe novo ano de criação");
+            tipoObra = Console.lerString("Tipo de obra (pintura, escultura ou fotografia)");
+            localNoMuseu = Console.lerString("Novo local onde se encontra no museu");
+
+            tempObra.setTitulo(titulo);
+            tempObra.setArtista(artista);
+            tempObra.setAnoCriacao(anoCriacao);
+            tempObra.setTipoObra(tipoObra);
+            tempObra.setLocalNoMuseu(localNoMuseu);
+
+            System.out.println("\nObra Atualizada:");
+            System.out.println(tempObra);
+
+            System.out.println("\nAgora iremos excluir a obra...");
+            
+            ListaObras.excluirObra(tempObra);
+            System.out.println("\nObra excluída com sucesso!");
+
         } else {
             System.out.println("Obra não encontrada");
         }
