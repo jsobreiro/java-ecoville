@@ -8,5 +8,21 @@ public abstract class ListaObras {
         listaObras.add(obra);
     }
 
+    public static ArrayList<ObraArte> getListaObras() {
+        return listaObras;
+    }
+
+    public static ObraArte buscarObraArte(String titulo) {
+        
+        for (ObraArte obraArte : listaObras) {
+            
+            if (obraArte.getTitulo().equals(titulo)){
+                return obraArte;
+            }
+        }
+
+        return null;
+
+    }
 
 }

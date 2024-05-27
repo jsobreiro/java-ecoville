@@ -18,6 +18,19 @@ public class App {
 
         ListaObras.salvarObra(obraArte);
 
+        System.out.println("\nObras cadastradas:");
+        ListaObras.getListaObras();
+
+        System.out.println("\nProcurar por Monalisa:");
+        ObraArte tempObra = ListaObras.buscarObraArte("Monalisa");
+
+        if (tempObra != null) {
+            System.out.println("Obra encontrada:");
+            System.out.println(tempObra);
+        } else {
+            System.out.println("Obra não encontrada");
+        }
+
 
     }
 }
