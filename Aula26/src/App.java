@@ -16,6 +16,8 @@ public class App {
         System.out.println("\nObra Cadastrada:");
         System.out.println(obraArte);
 
+        ListaObras.salvarObra(obraArte);
+
 
     }
 }

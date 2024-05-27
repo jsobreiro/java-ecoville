@@ -8,7 +8,16 @@ public class Sistema {
 
     public static void executar() {
 
-        int op;
+        Aluno aluno = null;
+
+        try{
+            aluno.setNome("Jason");
+            System.out.println("Nome válido!");
+        } catch (NullPointerException e) {
+            System.out.println("Objeto Aluno está nulo!");
+        }
+
+       /*  int op;
 
         do {
 
@@ -16,7 +25,7 @@ public class Sistema {
             op = Console.lerInt();
             verificarOpcao(op);
 
-        } while (op != 0);
+        } while (op != 0); */
 
     }
 
