@@ -1,5 +1,7 @@
 import java.io.IOException;
 
+import view.Console;
+
 public class Sistema {
 
     private static void exibirMenu() {
