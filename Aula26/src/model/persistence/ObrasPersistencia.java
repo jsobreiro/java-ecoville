@@ -47,7 +47,7 @@ public abstract class ObrasPersistencia {
 
     }
 
-    public static void criarArquivoSeNaoExistir() {
+    public static void criarArquivoSeNaoExistir() throws IOException {
 
         try {
 
@@ -56,13 +56,9 @@ public abstract class ObrasPersistencia {
             if (!arquivo.exists()) {
                 arquivo.createNewFile();
             }
+        } finally {}
 
-        } catch (IOException exception) {
-
-            System.out.println(exception.getMessage());
-        }
-
-    }
+    } 
 
 
 }

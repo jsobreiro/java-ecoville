@@ -1,0 +1,1 @@
+Título=Monalisa, Artista=Leonardo Davinci, Ano de criação=1578, Tipo de Obra=Pintura, Local no Museu=Salao Principal

@@ -1,7 +1,9 @@
 package view;
 
+import java.io.IOException;
+
 import controller.GerenciadorObras;
-import model.persistence.ObrasPersistencia;
+
 
 public class Sistema {
 
@@ -9,7 +11,7 @@ public class Sistema {
         
         System.out.println("\nGerenciamento de Obras de Arte do Museu");
         System.out.println("1) Cadastrar");
-        System.out.println("2) Buscar por T~itulo");
+        System.out.println("2) Buscar por Título");
         System.out.println("3) Apagar");
         System.out.println("4) Listar todas as obras");
         System.out.println("0) Sair");
@@ -17,7 +19,13 @@ public class Sistema {
 
     public static void executar() {
 
-        ObrasPersistencia.criarArquivoSeNaoExistir();
+       try {
+            GerenciadorObras.criarArquivoSeNaoExistir();
+            GerenciadorObras.lerArquivo();
+    
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
 
         while (true) {
             
@@ -27,7 +35,7 @@ public class Sistema {
             try {
                 GerenciadorObras.verificarOpcaoDigitada(op);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
 
         }

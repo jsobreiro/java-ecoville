@@ -65,6 +65,14 @@ public class ObraArte {
                 + tipoObra + ", Local no Museu=" + localNoMuseu;
     }
 
+    public String exibirDados() {
+        return "\nTítulo da obra: " + titulo + 
+        "\nArtista: " + artista + 
+        "\nAno de criação: " + anoCriacao + 
+        "\nTipo de Obra: " + tipoObra + 
+        "\nLocal da exposição no Museu: " + localNoMuseu;
+    }
+
     public void fromString(String linha) {
 
         String[] partes = linha.split(", ");
