@@ -1,9 +1,13 @@
+package model.persistence;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import model.entities.ObraArte;
 
 public abstract class ObrasPersistencia {
 
@@ -39,6 +43,23 @@ public abstract class ObrasPersistencia {
 
             }
 
+        }
+
+    }
+
+    public static void criarArquivoSeNaoExistir() {
+
+        try {
+
+            File arquivo = new File(ARQUIVO);
+
+            if (!arquivo.exists()) {
+                arquivo.createNewFile();
+            }
+
+        } catch (IOException exception) {
+
+            System.out.println(exception.getMessage());
         }
 
     }
