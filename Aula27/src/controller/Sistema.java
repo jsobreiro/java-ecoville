@@ -32,6 +32,7 @@ public class Sistema {
         System.out.println("2) Listar todos");
         System.out.println("3) Buscar livro");
         System.out.println("4) Apagar livro");
+        System.out.println("5) Atualizar dados de um livro");
         System.out.println("0) Sair");
 
     }
@@ -55,6 +56,10 @@ public class Sistema {
                 apagarLivro();
                 break;
 
+            case 5:
+                atualizarLivro();
+                break;
+
             case 0:
                 System.out.println("\nO Sistema foi finalizado...\n");
                 System.exit(0);
@@ -68,6 +73,38 @@ public class Sistema {
 
     }
     
+    private static void atualizarLivro() {
+        
+        try {
+
+            ListaLivros.verificarListaVazia();
+
+            System.out.println("\nInforme o título do livro que deseja atualizar:");
+            String titulo = Console.lerString("Título");
+
+            Livro tempLivro = ListaLivros.buscarLivro(titulo);
+
+            System.out.println("\nLivro Localizado:" +
+            tempLivro.exibirDados() + "\nInforme novos dados:\n");
+
+            titulo = Console.lerString("Novo título");
+            String autor = Console.lerString("Novo autor");
+
+            tempLivro.setTitulo(titulo);
+            tempLivro.setAutor(autor);
+
+            GerenciadorArquivo.salvarLivroNoArquivo(listaLivros);
+
+            System.out.println("\nLivro atualizado com sucesso:" + 
+            tempLivro.exibirDados());
+        
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
     private static void carregarDadosDoArquivo() {
         
         try {
@@ -156,8 +193,11 @@ public class Sistema {
 
             ListaLivros.apagarLivro(tempLivro);
             GerenciadorArquivo.salvarLivroNoArquivo(listaLivros);
+
+            System.out.println("\nLivro localizado: " + tempLivro.exibirDados());
             
-            System.out.println("\nLivro apagado com sucesso do arquivo!");
+            System.out.println("\nLivro " + tempLivro.getTitulo() + 
+            " apagado com sucesso do arquivo!");
 
         } catch (Exception e) {
 

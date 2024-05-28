@@ -23,8 +23,8 @@ public abstract class GerenciadorArquivo {
                 arquivo.createNewFile();
             }
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
         
         }
     }
@@ -36,12 +36,13 @@ public abstract class GerenciadorArquivo {
         try (FileReader fileReader = new FileReader(ARQUIVO_LIVRO);
         BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
-            String linha;
-            while ((linha = bufferedReader.readLine()) != null) {
+            String linhaAtualDoArquivo;
+            
+            while ((linhaAtualDoArquivo = bufferedReader.readLine()) != null) {
                 
                 Livro tempLivro = new Livro();
 
-                tempLivro.fromString(linha);
+                tempLivro.fromString(linhaAtualDoArquivo);
                
                 listaLivros.add(tempLivro);
 
