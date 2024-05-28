@@ -26,6 +26,10 @@ public class Console {
         return valor;
     }
 
+    public static int lerInt() {
+        return lerInt("Digite um valor 'int'");
+    }
+
     public static float lerFloat() {
         float valor = 0;
 
@@ -46,6 +50,10 @@ public class Console {
     public static String lerString(String msg) {
         System.out.print(msg + ": ");
         return scanner.nextLine();
+    }
+
+    public static String lerString() {
+        return lerString("Digite uma 'string'");
     }
 
 

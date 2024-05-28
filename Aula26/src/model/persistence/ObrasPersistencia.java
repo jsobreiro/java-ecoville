@@ -9,19 +9,21 @@ public abstract class ObrasPersistencia {
 
     private static final String ARQUIVO = "obras-de-arte.txt";
 
-    public static void salvarObraNoArquivo (ObraArte obra)  throws IOException {
+    public static void salvarObraNoArquivo (ArrayList<ObraArte> listaObras)  throws IOException {
 
-        try (FileWriter fWriter = new FileWriter(ARQUIVO, true);
+        try (FileWriter fWriter = new FileWriter(ARQUIVO);
              BufferedWriter bWriter = new BufferedWriter(fWriter)) {
 
-                bWriter.write(obra + "\n");
+                for (ObraArte tempObra : listaObras) {
+                    fWriter.write(tempObra + "\n");
+                }
         }
 
     }
 
-    public static ArrayList<ObraArte> lerArquivo() throws IOException {
+    public static void lerArquivo(ArrayList<ObraArte> listaObras) throws IOException {
 
-        ArrayList<ObraArte> tempLista = new ArrayList<>();
+        listaObras.clear();
         
         try (FileReader fReader = new FileReader(ARQUIVO);
              BufferedReader bReader = new BufferedReader(fReader)) {
@@ -33,13 +35,11 @@ public abstract class ObrasPersistencia {
 
                 tempObra.fromString(linha);
 
-                tempLista.add(tempObra);
+                listaObras.add(tempObra);
 
             }
 
         }
-
-        return tempLista;
 
     }
 
