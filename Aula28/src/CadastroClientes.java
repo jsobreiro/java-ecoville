@@ -3,54 +3,48 @@ import java.util.List;
 
 public class CadastroClientes {
 
-    private static List<Cliente> clientes = new ArrayList<>();
+    private static List<Cliente> listaClientes = new ArrayList<>();
 
-    public static void adicionarCliente(Cliente c) {
-        clientes.add(c);
+    public static void adicionarCliente(Cliente cliente)  {
+        
+        try {
+            listaClientes.add(cliente);
+        
+        } catch (NullPointerException nullPointerException) {
+            
+            System.out.println(nullPointerException.getMessage());
+        }
     }
 
-    public static void buscarCliente(String email) {
+    public static Cliente buscarCliente(String email) throws Exception {
 
-        for (Cliente tempCliente : clientes) {
+        for (Cliente tempCliente : listaClientes) {
 
             if (tempCliente.getEmail().equals(email)) {
-                System.out.println("\nCliente encontrado:");
-                tempCliente.exibirDadosCliente();
-                return;
+                return tempCliente;
             }
         }
 
-        System.out.println("\nCliente com o e-mail " + email + " não licalizado.");
+        throw new Exception("\nCliente com o e-mail " + email + " não licalizado.");
+
+        
     }
 
-    public static void listarTodosOsClientes() {
+    public static List<Cliente> getListaClientes() {
 
-        if (clientes.size() == 0) {
-            System.out.println("\nNenhum cliente cadastrado.");
-            return;
-        }
-
-        System.out.println("\nClientes cadastrados:");
-
-        for (Cliente tempCliente : clientes) {
-
-            tempCliente.exibirDadosCliente();
-        }
+        return listaClientes;
+        
     }
 
-    public static void excluirCliente(String email) {
+    public static void removerCliente(Cliente cliente) {
 
-        for (Cliente tempCliente : clientes) {
+        listaClientes.remove(cliente);
+    }
 
-            if (tempCliente.getEmail().equals(email)) {
-                clientes.remove(tempCliente);
-                System.out.println("\nCliente " + email + " removido com sucesso");
-                return;
-            }
+    public static void verificarListaVazia() throws ListaVaziaException{
+        if (listaClientes.isEmpty()) {
+            throw new ListaVaziaException("\nNão há clientes cadastrados");
         }
-
-        System.out.println("\nCliente com o e-mail " + email + " não licalizado.");
-
     }
 
 }

@@ -34,10 +34,10 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public void exibirDadosCliente() {
-        System.out.println("\nNome: " + nome);
-        System.out.println("E-mail: " + email);
-        System.out.println("Endereço: " + endereco);
+    public String exibirDadosCliente() {
+        return "\nNome: " + nome +
+                "\nE-mail: " + email +
+                "\nEndereço: " + endereco;
     }
 
 

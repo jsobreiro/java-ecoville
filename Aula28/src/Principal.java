@@ -1,77 +1,138 @@
 public class Principal {
 
-    public static void main(String[] args) {
+    private static void exibirMenu() {
 
-        int op;
-        String nome;
-        String email;
-        String endereco;
+        System.out.println("\nSistema Clientes - Menu" + 
+                            "\n1) Cadastrar" + 
+                            "\n2) Buscar" + 
+                            "\n3) Remover" +
+                            "\n4) Listar todos" +
+                            "\n0) Sair");
 
-        do {
+    }
 
-            System.out.println("\nSistema Clientes - Menu");
-            System.out.println("1) Cadastrar");
-            System.out.println("2) Buscar");
-            System.out.println("3) Remover");
-            System.out.println("4) Listar todos");
-            System.out.println("0) Sair");
-            System.out.print("Informe uma opção: ");
-            op = Console.lerInt();
+    private static void cadastrarCliente() {
 
-            switch (op) {
-                case 1:
+        System.out.println("\nInforme os dados:");
+        String nome = Console.lerString("Nome: ");
+        String email = Console.lerString("E-mail: ");
+        String endereco = Console.lerString("Endereço: ");
 
-                    System.out.println("\nInforme os dados:");
-                    System.out.print("Nome: ");
-                    nome = Console.lerString();
-                    System.out.print("E-mail: ");
-                    email = Console.lerString();
-                    System.out.print("Endereço: ");
-                    endereco = Console.lerString();
+        Cliente novoCliente = new Cliente(nome, email, endereco);
 
-                    CadastroClientes.adicionarCliente(new Cliente(nome, email, endereco));
+        CadastroClientes.adicionarCliente(novoCliente);
 
-                    System.out.println("\nCliente cadastrado com sucesso!");
+        System.out.println("\nCliente cadastrado com sucesso!");
 
-                    break;
+    }
 
-                case 2:
+    private static void buscarCliente() {
+        
+        
+        try {
 
-                    System.out.println("\nInforme o e-mail do cliente que deseja encontrar: ");
-                    email = Console.lerString();
+            CadastroClientes.verificarListaVazia();
 
-                    CadastroClientes.buscarCliente(email);
+            String email = Console.lerString("Informe o e-mail do cliente que deseja encontrar: ");
 
-                    break;
+            Cliente clienteEncontrado = CadastroClientes.buscarCliente(email);
 
-                case 3:
+            System.out.println("\nCliente encontrado: " 
+                                + clienteEncontrado.exibirDadosCliente());
 
-                    System.out.println("\nInforme o e-mail do cliente que deseja remover: ");
-                    email = Console.lerString();
+        } catch (Exception exception) {
 
-                    CadastroClientes.excluirCliente(email);
+            System.out.println(exception.getMessage());
+        }
+          
 
-                    break;
+    }
 
-                case 4:
+    private static void removerCliente() {
 
-                    System.out.println("\nClientes cadastrados:");
-                    CadastroClientes.listarTodosOsClientes();
+        try {
 
-                    break;
+            CadastroClientes.verificarListaVazia();
 
-                case 0:
+            String email = Console.lerString("Informe o e-mail do cliente que deseja encontrar: ");
 
-                    System.out.println("\nO sistema foi finalizado...");
-                    break;
+            Cliente clienteEncontrado = CadastroClientes.buscarCliente(email);
 
-                default:
+            CadastroClientes.removerCliente(clienteEncontrado);
 
-                    System.out.println("\nOpção inválida. Digite novamente.");
-                    break;
+            System.out.println("\nCliente foi removido com sucesso!");
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+
+    }
+
+    private static void listarTodosClientes() {
+
+        try {
+
+            CadastroClientes.verificarListaVazia();
+
+            System.out.println("\nClientes Cadastrados:");
+
+            for(Cliente tempCliente : CadastroClientes.getListaClientes()) {
+
+                System.out.println(tempCliente.exibirDadosCliente());
             }
 
-        } while (op != 0);
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+    private static void verificarOpcaoMenu(int opcao) {
+
+        switch (opcao) {
+            case 1:
+                cadastrarCliente();
+                break;
+
+            case 2:
+                buscarCliente();
+                break;
+            
+            case 3: 
+                removerCliente();
+                break;
+            
+            case 4:
+                listarTodosClientes();
+                break;
+             
+            case 0:
+                System.out.println("\nSistema finalizado\n");
+                System.exit(0);
+                break;
+        
+            default:
+                System.out.println("\nOpção inválida, digite novamente.");
+                break;
+        }
+
+
+    }
+
+    public static void main(String[] args) {
+
+        while (true) {
+            
+            exibirMenu();
+            int opcao = Console.lerInt("Informe sua opção: ");
+            verificarOpcaoMenu(opcao);
+
+        }
+
 
     }
 
